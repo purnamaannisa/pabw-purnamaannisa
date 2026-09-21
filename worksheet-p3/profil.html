@@ -3,38 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daftar Film Favorit Saya - Koleksi Tontonan</title>
+  <title>Daftar Film Saya</title>
 </head>
 <body>
-
-  <!-- Header & Navigasi -->
   <header>
-    <h1>Daftar Film yang Pernah Saya Nonton</h1>
+    <h1>Daftar Film Saya</h1>
     <nav aria-label="Navigasi utama">
       <ul>
         <li><a href="#daftar-film">Daftar Film</a></li>
         <li><a href="#tambah-film">Tambah Film</a></li>
-        <li><a href="#kontak">Kontak</a></li>
+        <li><a href="#tentang-saya">Tentang Saya</a></li>
       </ul>
     </nav>
   </header>
-
-  <!-- Konten Utama -->
+ 
   <main>
-    
-    <!-- Section 1: Gambar dan Tabel Data Film -->
     <section id="daftar-film">
-      <h2>Koleksi Film Pilihan</h2>
+      <h2>Koleksi film pilihan</h2>
       
-      <!-- Gambar dengan Alt Text bermakna -->
-      <figure>
-        <img src="poster-film.webp" alt="Tampilan layar bioskop dan deretan poster film animasi populer" width="640" height="360" loading="lazy">
-        <figcaption>Poster beberapa film favorit yang berkesan setelah ditonton.</figcaption>
-      </figure>
-
-      <!-- Tabel Data Film -->
       <table>
-        <caption>Riwayat Film yang Selesai Ditonton</caption>
+        <caption>Daftar film yang pernah ditonton beserta ratingnya</caption>
         <thead>
           <tr>
             <th scope="col">Judul Film</th>
@@ -64,34 +52,57 @@
           </tr>
         </tbody>
       </table>
-    </section>
 
-    <!-- Section 2: Form Tambah Film -->
+      <!-- Menambahkan gambar poster sesuai instruksi D.2 -->
+      <figure>
+        <img src="spiderman.jpg" alt="Poster film Spider-Man: Brand New Day yang menampilkan topeng Spider-Man dengan pantulan kota di matanya" width="640" height="960" loading="lazy">
+        <figcaption>Poster Spider-Man: Brand New Day</figcaption>
+      </figure>
+
+      <figure>
+        <img src="resident-evil.jpg" alt="Poster film Resident Evil dengan tangan-tangan menjulur keluar dari sebuah pintu" width="640" height="960" loading="lazy">
+        <figcaption>Poster Resident Evil</figcaption>
+      </figure>
+
+      <figure>
+        <img src="backrooms.jpg" alt="Poster film Backrooms memperlihatkan seorang wanita ketakutan bersandar di dinding kuning pucat" width="640" height="960" loading="lazy">
+        <figcaption>Poster Backrooms</figcaption>
+      </figure>
+
+    </section>
+ 
     <section id="tambah-film">
-      <h2>Tambah Film ke Daftar</h2>
+      <h2>Tambah film ke daftar</h2>
+      
       <form action="/simpan" method="post">
         <p>
-          <label for="judul-film">Judul Film:</label>
-          <input type="text" id="judul-film" name="judul_film" required>
+          <label for="judul">Judul Film</label>
+          <input type="text" id="judul" name="judul" required>
         </p>
         <p>
-          <label for="sutradara-film">Sutradara:</label>
-          <input type="text" id="sutradara-film" name="sutradara_film" required>
+          <label for="sutradara">Sutradara</label>
+          <input type="text" id="sutradara" name="sutradara" required>
         </p>
         <p>
-          <label for="tahun-rilis">Tahun Rilis:</label>
-          <input type="number" id="tahun-rilis" name="tahun_rilis" min="1900" max="2026" required>
+          <label for="tahun">Tahun Rilis</label>
+          <input type="number" id="tahun" name="tahun" min="1888" max="2100" required>
         </p>
-        <button type="submit">Simpan Film</button>
+        <p>
+          <label for="rating">Rating (0-5)</label>
+          <input type="number" id="rating" name="rating" min="0" max="5" step="0.1" required>
+        </p>
+        <button type="submit">Simpan</button>
       </form>
     </section>
 
+    <section id="tentang-saya">
+      <h2>Tentang Saya</h2>
+      <p>Halaman ini dikelola oleh Purnama Annisa untuk mencatat koleksi film.</p>
+    </section>
   </main>
-
-  <!-- Footer -->
-  <footer id="kontak">
-    <p>Purnama Annisa · 25523279 · 2026</p>
+ 
+  <footer>
+    <p>Purnama Annisa • 25523279 • 2026</p>
   </footer>
-
 </body>
 </html>
