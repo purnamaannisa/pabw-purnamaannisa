@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Film Favorit Saya - Koleksi Tontonan</title>
+</head>
+<body>
+
+  <!-- Header & Navigasi -->
+  <header>
+    <h1>Daftar Film yang Pernah Saya Nonton</h1>
+    <nav aria-label="Navigasi utama">
+      <ul>
+        <li><a href="#daftar-film">Daftar Film</a></li>
+        <li><a href="#tambah-film">Tambah Film</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Konten Utama -->
+  <main>
+    
+    <!-- Section 1: Gambar dan Tabel Data Film -->
+    <section id="daftar-film">
+      <h2>Koleksi Film Pilihan</h2>
+      
+      <!-- Gambar dengan Alt Text bermakna -->
+      <figure>
+        <img src="poster-film.webp" alt="Tampilan layar bioskop dan deretan poster film animasi populer" width="640" height="360" loading="lazy">
+        <figcaption>Poster beberapa film favorit yang berkesan setelah ditonton.</figcaption>
+      </figure>
+
+      <!-- Tabel Data Film -->
+      <table>
+        <caption>Riwayat Film yang Selesai Ditonton</caption>
+        <thead>
+          <tr>
+            <th scope="col">Judul Film</th>
+            <th scope="col">Sutradara</th>
+            <th scope="col">Tahun Rilis</th>
+            <th scope="col">Rating Saya</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Spider-Man: Brand New Day</th>
+            <td>Destin Daniel Cretton</td>
+            <td>2026</td>
+            <td>3.5/5</td>
+          </tr>
+          <tr>
+            <th scope="row">Resident Evil</th>
+            <td>Zach Cregger</td>
+            <td>2026</td>
+            <td>4.7/5</td>
+          </tr>
+          <tr>
+            <th scope="row">Backrooms</th>
+            <td>Kane Parsons</td>
+            <td>2026</td>
+            <td>4/5</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Section 2: Form Tambah Film -->
+    <section id="tambah-film">
+      <h2>Tambah Film ke Daftar</h2>
+      <form action="/simpan" method="post">
+        <p>
+          <label for="judul-film">Judul Film:</label>
+          <input type="text" id="judul-film" name="judul_film" required>
+        </p>
+        <p>
+          <label for="sutradara-film">Sutradara:</label>
+          <input type="text" id="sutradara-film" name="sutradara_film" required>
+        </p>
+        <p>
+          <label for="tahun-rilis">Tahun Rilis:</label>
+          <input type="number" id="tahun-rilis" name="tahun_rilis" min="1900" max="2026" required>
+        </p>
+        <button type="submit">Simpan Film</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="kontak">
+    <p>Purnama Annisa · 25523279 · 2026</p>
+  </footer>
+
+</body>
+</html>
