@@ -1,0 +1,23 @@
+/* Otomatis sesuai sistem pengguna */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg:      #0F172A; /* Abu-abu sangat gelap */
+    --color-fg:      #F8FAFC; /* Teks terang */
+    --color-surface: #1E293B; /* Kartu gelap */
+    --color-border:  #334155;
+    --color-primary: #F472B6; /* Pink lebih terang agar kontras di latar gelap */
+    --color-danger:  #FB7185;
+    --color-focus:   #60A5FA; /* Biru terang */
+  }
+}
+
+/* Pengalih manual menggunakan checkbox (#tema) */
+:root:has(#tema:checked) {
+  --color-bg:      #0F172A;
+  --color-fg:      #F8FAFC;
+  --color-surface: #1E293B;
+  --color-border:  #334155;
+  --color-primary: #F472B6;
+  --color-danger:  #FB7185;
+  --color-focus:   #60A5FA;
+}
