@@ -17,3 +17,19 @@ Topik halaman saya: Daftar film yang pernah saya tonton.
 ## Catatan penggunaan AI
 
 Mendapatkan panduan struktur HTML dan langkah pengerjaan dari AI.
+
+
+## Pertemuan 4 — Design token halaman profil
+
+- Berkas gaya yang dibuat: tokens.css, base.css, layout.css, komponen.css, tema.css
+- Warna utama: #BE185D (pink tua), dipilih karena memberikan kontras yang baik dengan latar terang dan aksen biru untuk fokus.
+
+### Token yang saya tetapkan
+
+| Token | Nilai | Untuk apa |
+|---|---|---|
+| --color-primary | #BE185D | tombol, penanda |
+| --color-fg | #111827 | warna teks utama |
+| --color-bg | #F8FAFC | latar halaman |
+| --color-focus | #2563EB | garis fokus |
+| --text-md | 1.0625rem | ukuran teks isi utama |
