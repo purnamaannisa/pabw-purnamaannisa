@@ -1,0 +1,21 @@
+/* Otomatis sesuai sistem pengguna */
+@media (prefers-color-scheme: dark) {
+  :root {
+  --color-bg: #ffffff;
+  --color-fg: #1a1a1a;
+  --color-surface: #f4f4f5;
+  --color-border: #e4e4e7;
+  --color-primary: #F472B6;
+  }
+}
+
+/* Pengalih manual menggunakan checkbox (#tema) */
+:root:has(#tema:checked) {
+  --color-bg:      #0F172A;
+  --color-fg:      #F8FAFC;
+  --color-surface: #1E293B;
+  --color-border:  #334155;
+  --color-primary: #F472B6;
+  --color-danger:  #FB7185;
+  --color-focus:   #60A5FA;
+}

@@ -33,3 +33,11 @@ Mendapatkan panduan struktur HTML dan langkah pengerjaan dari AI.
 | --color-bg | #F8FAFC | latar halaman |
 | --color-focus | #2563EB | garis fokus |
 | --text-md | 1.0625rem | ukuran teks isi utama |
+
+
+## Pertemuan 5 — Layout Modern: Flexbox dan Grid
+
+- Kerangka utama (.page) menggunakan Grid `grid-template-rows: auto 1fr auto` dengan `min-height: 100dvh`.
+- Area isi menggunakan Grid `grid-template-columns: 16rem 1fr` (sidebar & konten).
+- Galeri menggunakan Grid adaptif `repeat(auto-fit, minmax(16rem, 1fr))`.
+- Navbar dan elemen internal kartu menggunakan Flexbox dengan `gap`.
