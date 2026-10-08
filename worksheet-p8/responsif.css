@@ -1,0 +1,72 @@
+.isi,
+.utama,
+.sisi,
+.bawah {
+  min-width: 0;
+}
+
+.isi {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+
+.galeri,
+.katalog {
+  grid-template-columns: 1fr;
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+.table-wrap {
+  overflow-x: auto;
+  width: 100%;
+  display: block;
+}
+
+table {
+  min-width: 400px;
+}
+
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+
+@media (min-width: 48rem) {
+  .galeri,
+  .katalog {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+
+@media (min-width: 60rem) {
+  .isi {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "utama utama"
+      "bawah bawah"
+      "sisi  sisi";
+    gap: var(--space-6);
+  }
+
+  .sisi  { grid-area: sisi; }
+  .utama { grid-area: utama; }
+  .bawah { grid-area: bawah; }
+
+  .galeri,
+  .katalog {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
