@@ -23,3 +23,18 @@ const kalimat = `Nama saya ${profil.nama}, peran saya sebagai ${profil.peran}. S
 console.log(kalimat);
 console.log(typeof namaLengkap);   // "string"
 console.log(typeof jumlahProyek);  // "number"
+
+
+// Fungsi Murni 1 (Bentuk Declaration & Destructuring Parameter)
+// Menyusun kalimat perkenalan dari satu object profil
+function buatPerkenalan({ nama, peran }) {
+  return `${nama} — ${peran}`;
+}
+
+// Fungsi Murni 2 (Bentuk Arrow Function)
+// Merapikan daftar keahlian menjadi satu baris teks dengan pemisah '·'
+const formatKeahlian = (daftar) => daftar.join(" · ");
+
+// Menampilkan hasil pemanggilan fungsi ke Console
+console.log(buatPerkenalan(profil));
+console.log(formatKeahlian(profil.keahlian));
