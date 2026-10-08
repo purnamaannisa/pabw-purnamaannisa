@@ -41,3 +41,8 @@ Mendapatkan panduan struktur HTML dan langkah pengerjaan dari AI.
 - Area isi menggunakan Grid `grid-template-columns: 16rem 1fr` (sidebar & konten).
 - Galeri menggunakan Grid adaptif `repeat(auto-fit, minmax(16rem, 1fr))`.
 - Navbar dan elemen internal kartu menggunakan Flexbox dengan `gap`.
+
+## Pertemuan 8 — Membuat halaman profil yang Datanya Bergerak
+
+## Catatan penggunaan AI
+- untuk mencari tau cara mengecek di console.
