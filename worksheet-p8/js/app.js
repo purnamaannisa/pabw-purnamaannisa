@@ -14,7 +14,7 @@ const profil = {
 };
 
 // Penggunaan Akses Aman (?.) dan Nilai Bawaan (??)
-const kota = profil.alamat?.kota ?? "Kota belum ditentukan";
+const kota = profil.alamat.kota;
 
 // Penggunaan Template Literal (backtick `` dan \${})
 const kalimat = `Nama saya ${profil.nama}, peran saya sebagai ${profil.peran}. Saya mengelola ${profil.keahlian.length} bidang utama dan berlokasi di ${kota}.`;
