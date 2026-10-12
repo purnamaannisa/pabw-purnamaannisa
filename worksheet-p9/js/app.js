@@ -3,7 +3,7 @@ const peran = "Pengelola Katalog & Reviewer Film";
 const keahlian = ["Ulasan Film", "Rating", "Pengelolaan Katalog"];
 const jumlahProyek = 3;
 
-// Objek Profil
+
 const profil = {
   nama: namaLengkap,
   peran: peran,
@@ -17,10 +17,10 @@ const kota = profil.alamat?.kota ?? "Kota belum ditentukan";
 
 const kalimat = `Nama saya ${profil.nama}, peran saya sebagai ${profil.peran}. Saya mengelola ${profil.keahlian.length} bidang utama dan berlokasi di ${kota}.`;
 
-// Menampilkan ke Console
+
 console.log(kalimat);
-console.log(typeof namaLengkap);   // "string"
-console.log(typeof jumlahProyek);  // "number"
+console.log(typeof namaLengkap);   
+console.log(typeof jumlahProyek);  
 
 
 
