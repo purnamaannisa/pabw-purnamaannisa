@@ -46,3 +46,17 @@ Mendapatkan panduan struktur HTML dan langkah pengerjaan dari AI.
 
 ## Catatan penggunaan AI
 - untuk mencari tau cara mengecek di console.
+
+
+# P9 — DOM, Event, dan Interaktivitas
+
+## Ringkasan Pekerjaan
+- Pemilihan & Pengisian Elemen: Mengambil elemen DOM dengan `querySelector` dan mengisi teks menggunakan `textContent` untuk keamanan XSS.
+- Render dari Data: Membuat kartu galeri film secara dinamis menggunakan fungsi `render()` serta menangani kondisi array kosong (`if (daftar.length === 0)`).
+- Event Delegation: Menggunakan satu event listener pada elemen induk `#filter` dengan memanfaatkan `evt.target.closest("button")` untuk mendeteksi filter yang diklik.
+- Validasi Form: Memasang pola `pattern=".*[^\s].*"` pada HTML dan menggunakan `.trim()` pada JavaScript untuk mencegah input spasi saja.
+
+## Deklarasi Penggunaan AI
+Dalam pengerjaan proyek ini, saya menggunakan AI sebagai kawan berpikir untuk:
+1. Membantu melacak kendala (debugging) logika pada fungsi `render()` dan penanganan kasus data kosong.
+2. Memahami konsep keamanan `textContent` vs `innerHTML` serta efisiensi event delegation.
