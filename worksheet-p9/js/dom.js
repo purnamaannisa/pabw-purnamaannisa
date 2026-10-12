@@ -17,7 +17,7 @@ function buatKartu(film) {
   figure.className = "kartu";
 
   const img = document.createElement("img");
-  img.src = petaGambar[film.judul] || "spiderman.jpg";
+  img.src = petaGambar[film.judul] || "poster-placeholder.jpg";
   img.alt = `Poster film ${film.judul}`;
   img.width = 640;
   img.height = 960;
@@ -50,17 +50,17 @@ export function render(daftar) {
 
 render(daftarFilm);
 
-// 4. Pilih elemen baris filter
+
 const barisFilter = document.querySelector("#filter");
 
-// Fungsi untuk menandai tombol yang sedang aktif
+
 function tandaiTombolAktif(tombolAktif) {
   document.querySelectorAll("#filter button").forEach((tombol) => {
     tombol.classList.toggle("aktif", tombol === tombolAktif);
   });
 }
 
-// Event Delegation: Satu pendengar di induk (#filter) melayani semua tombol
+
 barisFilter.addEventListener("click", (event) => {
   const tombol = event.target.closest("button");
   if (!tombol) return; // Klik di luar tombol, abaikan
@@ -74,3 +74,72 @@ barisFilter.addEventListener("click", (event) => {
 
   render(terpilih);
 });
+
+
+const formTambah = document.querySelector("#tambah-film form");
+
+if (formTambah) {  
+  const judulInput = document.querySelector("#judul");
+  const sutradaraInput = document.querySelector("#sutradara");
+  const tahunInput = document.querySelector("#tahun");
+  const ratingInput = document.querySelector("#rating");
+
+  [judulInput, sutradaraInput].forEach((input) => {
+  if (!input) return;
+    input.addEventListener("input", () => {
+      if (input.value.trim().length > 0) {
+        input.setCustomValidity("");
+      }
+    });
+  });
+
+  formTambah.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+
+    if (!formTambah.checkValidity()) {
+      formTambah.reportValidity();
+      return;
+    }
+
+    const judul = judulInput.value.trim();
+    const sutradara = sutradaraInput.value.trim();
+    const tahun = parseInt(tahunInput.value, 10);
+    const rating = parseFloat(ratingInput.value);
+
+    
+    if (!judul) {
+      judulInput.setCustomValidity("Judul film tidak boleh hanya berisi spasi.");
+      judulInput.reportValidity();
+      return;
+    }
+
+    if (!sutradara) {
+      sutradaraInput.setCustomValidity("Nama sutradara tidak boleh hanya berisi spasi.");
+      sutradaraInput.reportValidity();
+      return;
+    }
+
+    if (isNaN(tahun) || isNaN(rating) || rating < 0 || rating > 5) {
+      alert("Harap isi tahun dan rating (0-5) dengan benar!");
+      return;
+    }
+
+
+    const filmBaru = {
+      judul: judul,
+      sutradara: sutradara,
+      tahun: tahun,
+      rating: rating,
+      kategori: "Aksi",
+      selesai: true
+    };
+
+
+    daftarFilm.unshift(filmBaru);
+    render(daftarFilm);
+
+
+    formTambah.reset();
+  });
+}

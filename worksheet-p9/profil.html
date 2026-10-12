@@ -88,13 +88,13 @@
         <form action="/simpan" method="post">
           <div class="form-kolom">
             <label for="judul">Judul Film</label>
-            <input type="text" id="judul" name="judul" required>
+            <input type="text" id="judul" name="judul" required pattern=".*[^\s].*" title="Judul tidak boleh hanya berisi spasi">
             <span class="pesan-galat">Judul wajib diisi.</span>
           </div>
 
           <div class="form-kolom">
             <label for="sutradara">Sutradara</label>
-            <input type="text" id="sutradara" name="sutradara" required>
+            <input type="text" id="sutradara" name="sutradara" required pattern=".*[^\s].*" title="Sutradara tidak boleh hanya berisi spasi">
             <span class="pesan-galat">Sutradara wajib diisi.</span>
           </div>
 
