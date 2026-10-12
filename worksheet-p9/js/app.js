@@ -37,9 +37,9 @@ console.log(formatKeahlian(profil.keahlian));
 
 
 export const daftarFilm = [
-  { judul: "Spider-Man: Brand New Day", sutradara: "Destin Daniel Cretton", tahun: 2026, rating: 3.5, selesai: true },
-  { judul: "Resident Evil", sutradara: "Zach Cregger", tahun: 2026, rating: 4.7, selesai: true },
-  { judul: "Backrooms", sutradara: "Kane Parsons", tahun: 2026, rating: 4.0, selesai: true }
+  { judul: "Spider-Man: Brand New Day", sutradara: "Destin Daniel Cretton", tahun: 2026, rating: 3.5, kategori: "Aksi", selesai: true },
+  { judul: "Resident Evil", sutradara: "Zach Cregger", tahun: 2026, rating: 4.7, kategori: "Horor", selesai: true },
+  { judul: "Backrooms", sutradara: "Kane Parsons", tahun: 2026, rating: 4.0, kategori: "Horor", selesai: true }
 ];
 
 

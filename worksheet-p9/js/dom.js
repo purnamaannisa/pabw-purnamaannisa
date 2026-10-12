@@ -49,3 +49,28 @@ export function render(daftar) {
 
 
 render(daftarFilm);
+
+// 4. Pilih elemen baris filter
+const barisFilter = document.querySelector("#filter");
+
+// Fungsi untuk menandai tombol yang sedang aktif
+function tandaiTombolAktif(tombolAktif) {
+  document.querySelectorAll("#filter button").forEach((tombol) => {
+    tombol.classList.toggle("aktif", tombol === tombolAktif);
+  });
+}
+
+// Event Delegation: Satu pendengar di induk (#filter) melayani semua tombol
+barisFilter.addEventListener("click", (event) => {
+  const tombol = event.target.closest("button");
+  if (!tombol) return; // Klik di luar tombol, abaikan
+
+  tandaiTombolAktif(tombol);
+
+  const kategori = tombol.dataset.kategori;
+  const terpilih = daftarFilm.filter(
+    (film) => kategori === "semua" || film.kategori === kategori
+  );
+
+  render(terpilih);
+});
