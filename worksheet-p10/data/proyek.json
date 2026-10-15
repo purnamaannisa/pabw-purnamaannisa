@@ -1,0 +1,5 @@
+[
+  { "id": 1, "judul": "Spider-Man: Brand New Day", "sutradara": "Destin Daniel Cretton", "tahun": 2026, "rating": 3.5, "kategori": "Aksi", "selesai": true },
+  { "id": 2, "judul": "Resident Evil", "sutradara": "Zach Cregger", "tahun": 2026, "rating": 4.7, "kategori": "Horor", "selesai": true },
+  { "id": 3, "judul": "Backrooms", "sutradara": "Kane Parsons", "tahun": 2026, "rating": 4.0, "kategori": "Horor", "selesai": true }
+]
