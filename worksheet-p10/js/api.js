@@ -1,5 +1,5 @@
 // js/api.js — Lapisan Data
-const ALAMAT = 'data/proyek.json'; // Alamat relatif terhadap profil.html
+const ALAMAT = 'https://raw.githubusercontent.com/purnamaannisa/pabw-purnamaannisa/refs/heads/master/worksheet-p10/data/proyek.json';
 
 export async function ambilProyek() {
   try {

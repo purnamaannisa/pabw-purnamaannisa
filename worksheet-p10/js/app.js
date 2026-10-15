@@ -64,17 +64,19 @@ console.table(profil.keahlian);
 // console.table(filmUrutRating);
 
 import { ambilProyek } from './api.js';
-import { render } from './dom.js';
+import { render, tampilkanGalat, aturMemuat } from './dom.js';
 
 async function muat() {
+  aturMemuat(true);
   try {
     const data = await ambilProyek();
-    console.log('Data berhasil dimuat:', data);
+    render(data);
+  } catch(galat) {
+    tampilkanGalat('Data gagal dimuat. Periksa koneksi, lalu muat ulang halaman');
+    console.error(galat.message);
 
-    render(data)
-  } catch (galat) {
-    console.error('Terjadi galat di app.js:', galat.message);
-  } 
+  } finally {
+    aturMemuat(false);
+  }
 }
-
 muat();

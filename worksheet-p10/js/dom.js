@@ -3,9 +3,10 @@
 
 const wadah = document.querySelector("#daftar-film .galeri");
 const pesanKosong = document.querySelector("#pesan-kosong");
+const pesanMuat = document.querySelector("#muat"); 
 
 // simpan data lokal
-let dataFilmLokal = []
+let dataFilmLokal = [];
 
 const petaGambar = {
   "Spider-Man: Brand New Day": "spiderman.jpg",
@@ -33,17 +34,36 @@ function buatKartu(film) {
   return figure;
 }
 
+export function aturMemuat(sedangMemuat) {
+  if (pesanMuat) {
+    pesanMuat.hidden = !sedangMemuat;
+  }
+}
+
+export function tampilkanGalat(pesan) {
+  wadah.textContent = "";
+  if (pesanKosong) {
+    pesanKosong.textContent = pesan;
+    pesanKosong.hidden = false;
+  }
+}
+
 
 export function render(daftar) {
+  dataFilmLokal = daftar;
 
-  wadah.textContent = "";
+  wadah.textContent = '';
 
   if (daftar.length === 0) {
-    pesanKosong.hidden = false;
+    if (pesanKosong) {
+      pesanKosong.textContent = "Belum ada data."
+      pesanKosong.hidden = false;
+    }
     return;
   }
 
-  pesanKosong.hidden = true;
+  if (pesanKosong) pesanKosong.hidden = true;
+
   daftar.forEach((film) => {
     wadah.append(buatKartu(film));
   });
@@ -63,19 +83,19 @@ function tandaiTombolAktif(tombolAktif) {
 }
 
 if (barisFilter) {
-barisFilter.addEventListener("click", (event) => {
-  const tombol = event.target.closest("button");
-  if (!tombol) return; // Klik di luar tombol, abaikan
+  barisFilter.addEventListener("click", (event) => {
+    const tombol = event.target.closest("button");
+    if (!tombol) return; // Klik di luar tombol, abaikan
 
-  tandaiTombolAktif(tombol);
+    tandaiTombolAktif(tombol);
 
-  const kategori = tombol.dataset.kategori;
-  const terpilih = daftarFilm.filter(
-    (film) => kategori === "semua" || film.kategori === kategori
-  );
+    const kategori = tombol.dataset.kategori;
+    const terpilih = dataFilmLokal.filter(
+      (film) => kategori === "semua" || film.kategori === kategori
+    );
 
-  render(terpilih);
-});
+    render(terpilih);
+  });
 }
 
 
@@ -138,9 +158,8 @@ if (formTambah) {
       selesai: true
     };
 
-
-    daftarFilm.unshift(filmBaru);
-    render(daftarFilm);
+    dataFilmLokal.unshift(filmBaru);
+    render(daftarFilmLokal);
 
 
     formTambah.reset();
