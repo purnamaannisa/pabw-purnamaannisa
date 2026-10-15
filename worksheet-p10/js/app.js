@@ -63,5 +63,14 @@ console.table(profil.keahlian);
 // console.log("Hasil sort pada salinan data:");
 // console.table(filmUrutRating);
 
-import { muat } from './api.js'
+import { ambilProyek } from './api.js'
+
+async function muat(params) {
+  try {
+    const data = await ambilProyek();
+    console.log('Data berhasil dimuat:', data);
+  } catch (galat) {
+    console.error('Terjadi galat di app.js:', galat.message);
+  } 
+}
 muat();
