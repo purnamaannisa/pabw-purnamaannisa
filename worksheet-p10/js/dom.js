@@ -4,6 +4,8 @@
 const wadah = document.querySelector("#daftar-film .galeri");
 const pesanKosong = document.querySelector("#pesan-kosong");
 
+// simpan data lokal
+let dataFilmLokal = []
 
 const petaGambar = {
   "Spider-Man: Brand New Day": "spiderman.jpg",
@@ -60,7 +62,7 @@ function tandaiTombolAktif(tombolAktif) {
   });
 }
 
-
+if (barisFilter) {
 barisFilter.addEventListener("click", (event) => {
   const tombol = event.target.closest("button");
   if (!tombol) return; // Klik di luar tombol, abaikan
@@ -74,6 +76,7 @@ barisFilter.addEventListener("click", (event) => {
 
   render(terpilih);
 });
+}
 
 
 const formTambah = document.querySelector("#tambah-film form");
