@@ -60,3 +60,48 @@ Mendapatkan panduan struktur HTML dan langkah pengerjaan dari AI.
 Dalam pengerjaan proyek ini, saya menggunakan AI sebagai kawan berpikir untuk:
 1. Membantu melacak kendala (debugging) logika pada fungsi `render()` dan penanganan kasus data kosong.
 2. Memahami konsep keamanan `textContent` vs `innerHTML` serta efisiensi event delegation.
+
+
+# P10: Katalog Film & Penanganan Galat API
+
+Aplikasi web katalog film sederhana yang mengambil data dinamis dari berkas JSON menggunakan `fetch` API. Kode dibuat secara modular dan dilengkapi penanganan galat (error handling) agar aplikasi tetap stabil saat terjadi masalah data atau jaringan.
+
+---
+
+## Fitur Utama
+
+- Fetch Data Asinkron: Mengambil data film secara dinamis dari berkas JSON (remote/lokal).
+- Struktur Modular: Kode dipisah dengan jelas menjadi `api.js` (fungsi HTTP/fetch), `dom.js` (manipulasi UI/render), dan `app.js` (pengontrol alur aplikasi).
+- Penanganan Status UI: Tampilan tetap stabil saat data berhasil dimuat, data kosong ("Belum ada data."), maupun saat koneksi jaringan terputus.
+- Manajemen State: Menggunakan variabel `dataUtama` untuk menyimpan data master agar fungsi filter tidak menghilangkan data asli.
+
+---
+
+## Hasil Pengujian Edge Cases
+
+1. Data Rusak (Malformed): Menggunakan pengecekan `Array.isArray()` agar aplikasi tidak crash jika format data JSON tidak sesuai.
+2. Galat Jaringan (404/Offline): Ditangkap menggunakan `try...catch` dan pengecekan `response.ok`, sehingga pesan kesalahan yang jelas dapat ditampilkan pada layar.
+3. Data Kosong (`[]`): Saat berkas JSON tidak memiliki data, tampilan galeri otomatis dibersihkan dan menampilkan pesan "Belum ada data.".
+
+---
+
+## Deklarasi Bantuan AI
+
+- Peran AI (Gemini):
+  - Memberikan panduan dan arahan langkah-langkah pengerjaan tugas Pertemuan 10.
+  - Memberikan saran solusi untuk perbaikan kendala (troubleshooting) seperti masalah state mutation pada filter dan penanganan status eror 404/data kosong.
+  - Memberikan referensi untuk membantu melengkapi poin-poin penjelasan pada lembar kerja.
+
+- Dikerjakan Sendiri:
+  - Menulis, menyusun, dan merapikan seluruh kode JavaScript pada VS Code (`api.js`, `dom.js`, dan `app.js`).
+  - Melakukan simulasi pengujian secara langsung di browser menggunakan DevTools (mode Offline, HTTP 404, dan Disable Cache).
+  - Mengisi dan melengkapi seluruh jawaban serta tabel pada lembar kerja (Worksheet Lembar E, F, dan H).
+  - Mengelola repositori Git (eksekusi `git add`, `commit`, `push`, dan penyusunan bukti laporan).
+
+---
+
+## Cara Menjalankan
+
+1. Clone repositori ini:
+   ```bash
+   git clone [https://github.com/purnamaannisa/pabw-purnamaannisa.git](https://github.com/purnamaannisa/pabw-purnamaannisa.git)
