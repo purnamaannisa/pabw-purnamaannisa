@@ -5,7 +5,7 @@ const wadah = document.querySelector("#daftar-film .galeri");
 const pesanKosong = document.querySelector("#pesan-kosong");
 const pesanMuat = document.querySelector("#muat"); 
 
-// simpan data lokal
+let dataUtama = [];
 let dataFilmLokal = [];
 
 const petaGambar = {
@@ -50,11 +50,16 @@ export function tampilkanGalat(pesan) {
 
 
 export function render(daftar) {
+
+  if (dataUtama.length === 0 && daftar && daftar.length > 0) {
+    dataUtama = [...daftar];
+  }
+
   dataFilmLokal = daftar;
 
   wadah.textContent = '';
 
-  if (daftar.length === 0) {
+  if (!daftar || daftar.length === 0 ) {
     if (pesanKosong) {
       pesanKosong.textContent = "Belum ada data."
       pesanKosong.hidden = false;
@@ -90,9 +95,10 @@ if (barisFilter) {
     tandaiTombolAktif(tombol);
 
     const kategori = tombol.dataset.kategori;
-    const terpilih = dataFilmLokal.filter(
-      (film) => kategori === "semua" || film.kategori === kategori
-    );
+    const terpilih = dataUtama.filter((film) => {
+      if (kategori === "semua") return true;
+      return (film.kategori || "").toLowerCase() === kategori.toLowerCase();
+    });
 
     render(terpilih);
   });
@@ -158,8 +164,8 @@ if (formTambah) {
       selesai: true
     };
 
-    dataFilmLokal.unshift(filmBaru);
-    render(daftarFilmLokal);
+    dataUtama.unshift(filmBaru);
+    render(dataUtama);
 
 
     formTambah.reset();
