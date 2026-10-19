@@ -105,3 +105,22 @@ Aplikasi web katalog film sederhana yang mengambil data dinamis dari berkas JSON
 1. Clone repositori ini:
    ```bash
    git clone [https://github.com/purnamaannisa/pabw-purnamaannisa.git](https://github.com/purnamaannisa/pabw-purnamaannisa.git)
+
+
+# P11 — Modul ES6, State Persistence, dan Error Handling
+
+Dokumentasi pengerjaan praktikum Pertemuan 11 (SIF302) — Pengembangan Aplikasi Berbasis Web.
+
+## Lingkungan Pengembangan (Environment)
+- Node.js LTS version: v24.22.0
+- npm version: 11.19.1
+
+## Fitur dan Implementasi Utama
+1. Modularisasi ES6: Program dipecah secara rapi ke dalam 5 modul di folder js/ (data.js, state.js, dom.js, events.js, app.js), ditambah modul js/api.js dari Pertemuan 10 dengan impor eksplisit berawalan ./ dan berakhiran .js[cite: 7].
+2. Pemisahan State dan DOM: Seluruh keadaan aplikasi dikelola dalam objek state tunggal di js/state.js, dan fungsi render(state) di js/dom.js menggambar ulang tampilan murni berdasarkan state.
+3. State Persistence: Menggunakan localStorage dengan kunci pabw-p11 untuk menyimpan preferensi filter kategori dan daftar favorit pengguna[cite: 1].
+4. Resiliensi dan Error Handling: Pembacaan data dibungkus dalam try...catch serta memeriksa nomor VERSI skema (VERSI = 2). Jika data rusak atau versinya tidak cocok, simpanan otomatis dibuang (localStorage.removeItem) dan sistem kembali ke nilai bawaan (null)[cite: 1].
+
+## Pengungkapan AI (AI Disclosure)
+- Dibantu AI: Diskusi alur logika penanganan galat try...catch pada localStorage, pengujian fungsi muat(), dan panduan penyusunan dokumentasi.
+- Dikerjakan Mandiri: Penulisan struktur HTML, pemisahan modul JavaScript, eksekusi perintah terminal untuk pengecekan versi Node.js/npm, pengujian langsung di Console peramban, serta pengisian seluruh lembar kerja. 
