@@ -1,48 +1,48 @@
-const namaLengkap = "Purnama Annisa";
-const peran = "Pengelola Katalog & Reviewer Film";
-const keahlian = ["Ulasan Film", "Rating", "Pengelolaan Katalog"];
-const jumlahProyek = 3;
+// const namaLengkap = "Purnama Annisa";
+// const peran = "Pengelola Katalog & Reviewer Film";
+// const keahlian = ["Ulasan Film", "Rating", "Pengelolaan Katalog"];
+// const jumlahProyek = 3;
 
 
-const profil = {
-  nama: namaLengkap,
-  peran: peran,
-  keahlian: keahlian,
-  jumlahProyek: jumlahProyek,
-  alamat: null // Sengaja null untuk menguji akses aman ?. dan nilai bawaan ??
-};
+// const profil = {
+//   nama: namaLengkap,
+//   peran: peran,
+//   keahlian: keahlian,
+//   jumlahProyek: jumlahProyek,
+//   alamat: null // Sengaja null untuk menguji akses aman ?. dan nilai bawaan ??
+// };
 
-// Penggunaan Akses Aman (?.) dan Nilai Bawaan (??)
-const kota = profil.alamat?.kota ?? "Kota belum ditentukan";
+// // Penggunaan Akses Aman (?.) dan Nilai Bawaan (??)
+// const kota = profil.alamat?.kota ?? "Kota belum ditentukan";
 
-const kalimat = `Nama saya ${profil.nama}, peran saya sebagai ${profil.peran}. Saya mengelola ${profil.keahlian.length} bidang utama dan berlokasi di ${kota}.`;
-
-
-console.log(kalimat);
-console.log(typeof namaLengkap);   
-console.log(typeof jumlahProyek);  
+// const kalimat = `Nama saya ${profil.nama}, peran saya sebagai ${profil.peran}. Saya mengelola ${profil.keahlian.length} bidang utama dan berlokasi di ${kota}.`;
 
 
-function buatPerkenalan({ nama, peran }) {
-  return `${nama} — ${peran}`;
-}
+// console.log(kalimat);
+// console.log(typeof namaLengkap);   
+// console.log(typeof jumlahProyek);  
 
 
-const formatKeahlian = (daftar) => daftar.join(" · ");
+// function buatPerkenalan({ nama, peran }) {
+//   return `${nama} — ${peran}`;
+// }
 
 
-console.log(buatPerkenalan(profil));
-console.log(formatKeahlian(profil.keahlian));
+// const formatKeahlian = (daftar) => daftar.join(" · ");
 
 
-// export const daftarFilm = [
-//   { judul: "Spider-Man: Brand New Day", sutradara: "Destin Daniel Cretton", tahun: 2026, rating: 3.5, kategori: "Aksi", selesai: true },
-//   { judul: "Resident Evil", sutradara: "Zach Cregger", tahun: 2026, rating: 4.7, kategori: "Horor", selesai: true },
-//   { judul: "Backrooms", sutradara: "Kane Parsons", tahun: 2026, rating: 4.0, kategori: "Horor", selesai: true }
-// ];
+// console.log(buatPerkenalan(profil));
+// console.log(formatKeahlian(profil.keahlian));
 
 
-console.table(profil.keahlian);
+// // export const daftarFilm = [
+// //   { judul: "Spider-Man: Brand New Day", sutradara: "Destin Daniel Cretton", tahun: 2026, rating: 3.5, kategori: "Aksi", selesai: true },
+// //   { judul: "Resident Evil", sutradara: "Zach Cregger", tahun: 2026, rating: 4.7, kategori: "Horor", selesai: true },
+// //   { judul: "Backrooms", sutradara: "Kane Parsons", tahun: 2026, rating: 4.0, kategori: "Horor", selesai: true }
+// // ];
+
+
+// console.table(profil.keahlian);
 // console.table(daftarFilm);
 
 
@@ -64,19 +64,22 @@ console.table(profil.keahlian);
 // console.table(filmUrutRating);
 
 import { ambilProyek } from './api.js';
-import { render, tampilkanGalat, aturMemuat } from './dom.js';
+import { isiProyek } from './state.js';
+import { tampilkanGalat, aturMemuat } from './dom.js';
+import { pasangPendengar } from './events.js';
 
-async function muat() {
+async function mulai() {
+  pasangPendengar();
   aturMemuat(true);
   try {
     const data = await ambilProyek();
-    render(data);
-  } catch(galat) {
+    isiProyek(data);
+  } catch (galat) {
     tampilkanGalat('Data gagal dimuat. Periksa koneksi, lalu muat ulang halaman');
     console.error(galat.message);
-
   } finally {
     aturMemuat(false);
   }
 }
-muat();
+
+mulai();
