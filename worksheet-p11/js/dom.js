@@ -16,7 +16,7 @@ const petaGambar = {
 };
 
 
-export function buatKartu(film) {
+export function buatKartu(film, favorit = []) {
   const figure = document.createElement("figure");
   figure.className = "kartu";
 
@@ -30,7 +30,16 @@ export function buatKartu(film) {
   figcaption.className = "kartu__kaki";
   figcaption.textContent = film.judul; 
 
-  figure.append(img, figcaption);
+  const filmId = String(film.id || film.judul);
+
+  const tombolFav = document.createElement("button");
+  tombolFav.className = "favorit";
+  tombolFav.dataset.id = filmId;
+
+  const isFavorit = favorit.map(String).includes(filmId);
+  tombolFav.textContent = isFavorit ? "★" : "☆";
+
+  figure.append(img, figcaption, tombolFav);
   return figure;
 }
 
@@ -66,10 +75,9 @@ export function render(state) {
   if (pesanKosong) pesanKosong.hidden = true;
 
   tampil.forEach((film) => {
-    wadah.append(buatKartu(film));
+    wadah.append(buatKartu(film, state.favorit));
   });
 
-  // Tandai tombol filter aktif
   document.querySelectorAll("#filter button").forEach((tombol) => {
     tombol.classList.toggle("aktif", tombol.dataset.kategori === state.kategoriAktif);
   });
