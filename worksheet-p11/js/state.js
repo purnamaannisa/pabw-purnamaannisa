@@ -20,20 +20,29 @@ export function simpan(state) {
 
 export function muat() {
   try {
-    const isi = JSON.parse(localStorage.getItem(KUNCI));
+    const raw = localStorage.getItem(KUNCI);
+    if (!raw) return null;
+
+    const isi = JSON.parse(raw);
+    
+    // Cek kesesuaian versi skema
     if (isi?.versi !== VERSI) {
-      localStorage.removeItem(KUNCI);
+      localStorage.removeItem(KUNCI); // buang versi tidak cocok
       return null;
     }
     return isi;
-  } catch {
-    localStorage.removeItem(KUNCI);
+  } catch (galat) {
+    localStorage.removeItem(KUNCI); // buang jika bukan JSON sah
     return null;
   }
 }
 
 export function pulihkan(isi) {
-  if (!isi) return; // kunjungan pertama: pakai nilai bawaan
+  if (!isi) {
+    state.kategoriAktif = "semua";
+    state.favorit = [];
+    return;
+  }
   state.kategoriAktif = isi.kategoriAktif || "semua";
   state.favorit = isi.favorit || [];
 }
