@@ -79,7 +79,9 @@ export function render(state) {
   });
 
   document.querySelectorAll("#filter button").forEach((tombol) => {
-    tombol.classList.toggle("aktif", tombol.dataset.kategori === state.kategoriAktif);
+    if (tombol.id !== "atur-ulang") {
+      tombol.classList.toggle("aktif", tombol.dataset.kategori === state.kategoriAktif);
+    }
   });
 }
 
