@@ -1,4 +1,4 @@
-import { pilihKategori, tambahFavorit } from './state.js';
+import { pilihKategori, tambahFavorit, aturUlang } from './state.js';
 
 export function pasangPendengar() {
   // Listener Filter Kategori
@@ -7,8 +7,16 @@ export function pasangPendengar() {
     barisFilter.addEventListener("click", (event) => {
       const tombol = event.target.closest("button");
       if (!tombol) return;
+
+      if (tombol.id === "atur-ulang") {
+        aturUlang();
+        return;
+      }
+
       const kategori = tombol.dataset.kategori;
-      pilihKategori(kategori);
+      if (kategori) {
+        pilihKategori(kategori);
+      }
     });
   }
 
@@ -17,8 +25,6 @@ export function pasangPendengar() {
     wadah.addEventListener("click", (event) => {
       const tombol = event.target.closest(".favorit");
       if (!tombol) return;
-      
-      // Ambil id film dari dataset tombol lalu ubah status favoritnya
       const filmId = tombol.dataset.id;
       tambahFavorit(filmId);
     });
