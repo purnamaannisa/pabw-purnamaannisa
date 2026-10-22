@@ -23,3 +23,4 @@ export function saring(daftar, kategori) {
   if (kategori === "semua") return daftar;
   return daftar.filter((item) => (item.kategori || "").toLowerCase() === kategori.toLowerCase());
 }
+
