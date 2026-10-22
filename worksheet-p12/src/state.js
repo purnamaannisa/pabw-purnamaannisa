@@ -1,15 +1,17 @@
-import { render } from './dom.js';
+import { reactive } from 'vue';
 
 const KUNCI = "pabw-p11";
 const VERSI = 2;
 
-export const state = {
+export const state = reactive({
   daftarProyek: [],
   kategoriAktif: "semua",
-  favorit: []
-};
+  favorit: [],
+  memuat: true,
+  galat: ''
+});
 
-export function simpan(state) {
+export function simpan(stateData) {
   const isi = {
     versi: VERSI,
     kategoriAktif: state.kategoriAktif,
@@ -51,18 +53,15 @@ export function aturUlang() {
   localStorage.removeItem(KUNCI);
   state.kategoriAktif = "semua";
   state.favorit = [];
-  render(state);
 }
 
 export function isiProyek(daftar) {
   state.daftarProyek = daftar;
-  render(state);
 }
 
 export function pilihKategori(nilai) {
-  state.kategoriAktif = nilai;
+  state.kategoriAktif = nilai; 
   simpan(state);
-  render(state);
 }
 
 // Fungsi baru untuk toggle favorit
@@ -77,5 +76,5 @@ export function tambahFavorit(id) {
   }
 
   simpan(state);
-  render(state); // Render ulang agar tampilan bintang berubah
+
 }

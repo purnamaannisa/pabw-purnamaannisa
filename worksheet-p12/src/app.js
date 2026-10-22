@@ -63,22 +63,20 @@
 // console.log("Hasil sort pada salinan data:");
 // console.table(filmUrutRating);
 
-import { ambilProyek } from './api.js';
-import { isiProyek, pulihkan, muat } from './state.js';
-import { tampilkanGalat, aturMemuat } from './dom.js';
-import { pasangPendengar } from './events.js';
+import { state, muat, pulihkan, isiProyek } from './state.js'
+import { ambilProyek } from './api.js'
 
 export async function mulai() {
-  pulihkan(muat());
-  pasangPendengar();
-  aturMemuat(true);
+  const tersimpan = muat()
+  pulihkan(tersimpan)
+
   try {
-    const data = await ambilProyek();
-    isiProyek(data);
-  } catch (galat) {
-    tampilkanGalat('Data gagal dimuat. Periksa koneksi, lalu muat ulang halaman');
-    console.error(galat.message);
-  } finally {
-    aturMemuat(false);
+    state.memuat = true
+    const daftar = await ambilProyek()
+    isiProyek(daftar)
+    state.memuat = false
+  } catch (err) {
+    state.galat = 'Gagal memuat data film.'
+    state.memuat = false
   }
 }
