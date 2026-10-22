@@ -124,3 +124,41 @@ Dokumentasi pengerjaan praktikum Pertemuan 11 (SIF302) — Pengembangan Aplikasi
 ## Pengungkapan AI (AI Disclosure)
 - Dibantu AI: Diskusi alur logika penanganan galat try...catch pada localStorage, pengujian fungsi muat(), dan panduan penyusunan dokumentasi.
 - Dikerjakan Mandiri: Penulisan struktur HTML, pemisahan modul JavaScript, eksekusi perintah terminal untuk pengecekan versi Node.js/npm, pengujian langsung di Console peramban, serta pengisian seluruh lembar kerja. 
+
+
+# Portfolio Vue.js — Worksheet P12 (Migrasi Reaktivitas & Build Production)
+
+Proyek ini merupakan hasil migrasi dari P11 (DOM Manipulation manual) ke Vue.js 3 menggunakan konsep `reactive()`, arsitektur berbasis komponen, serta analisis hasil build produksi dengan Vite.
+
+## Informasi Pengembang
+* **Nama**: Purnama Annisa
+* **NIM**: 25523279
+* **Tahun**: 2026
+## Informasi Perkakas
+* **Node.js**: v24.22.0
+* **npm**: 11.19.1
+## Analisis Ukuran Build
+* **Sebelum Build (src/)**: ~72.7 KB
+* **Sesudah Build (dist/)**: 28.48 KB
+---
+
+## Pernyataan Deklarasi Bantuan AI
+
+Proyek P12 ini dikerjakan dengan bantuan AI sebagai mitra diskusi dan panduan teknis, dimana pembagian perannya adalah sebagai berikut:
+
+* **Bagian yang Dibantu AI:**
+  * Memberikan panduan langkah demi langkah dalam merestrukturisasi komponen Vue dan migrasi logika reaktif (`state.js`).
+  * Membantu menganalisis data ukuran berkas sebelum/sesudah build dari output terminal `vite build` dan DevTools Network.
+
+* **Bagian yang Dikerjakan Mandiri (Oleh Saya):**
+  * Eksekusi seluruh perintah terminal (`npm run dev`, `npm run build`, `npm run preview`, dan Git commit/push).
+  * Pengujian reaktivitas aplikasi, pengecekan konsol browser, serta verifikasi penyimpanan `localStorage` secara langsung.
+  * Pengisian dan penyelesaian seluruh lembar kerja P12 secara bertahap hingga tuntas.
+
+---
+
+## Cara Menjalankan Proyek
+
+1. **Jalankan Mode Pengembangan:**
+   ```bash
+   npm run dev
